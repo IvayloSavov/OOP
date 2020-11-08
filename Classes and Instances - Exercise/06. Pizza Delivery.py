@@ -32,11 +32,12 @@ class PizzaDelivery:
             self.price -= ingredient_price * quantity
 
     def pizza_ordered(self) -> str:
-        # if PizzaDelivery.ordered:
-        #     return f"Pizza {self.name} already prepared and we can't make any changes!"
+        if PizzaDelivery.ordered:
+            return f"Pizza {self.name} already prepared and we can't make any changes!"
         PizzaDelivery.ordered = True
         ingredients = [f"{i}: {q}" for i, q in self.ingredients.items()]
-        return f"You've ordered pizza {self.name} prepared with {', '.join(ingredients)} and the price will be {self.price}lv."
+        return f"You've ordered pizza {self.name} prepared with {', '.join(ingredients)} and the price will be " \
+               f"{self.price}lv."
 
 
 Margarita = PizzaDelivery('Margarita', 11, {'cheese': 2, 'tomatoes': 1})

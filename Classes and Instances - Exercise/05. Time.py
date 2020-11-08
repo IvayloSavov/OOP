@@ -1,7 +1,10 @@
+from typing import ClassVar
+
+
 class Time:
-    max_hours = 23
-    max_minutes = 59
-    max_seconds = 59
+    max_hours: ClassVar[int] = 23
+    max_minutes: ClassVar[int] = 59
+    max_seconds: ClassVar[int] = 59
 
     def __init__(self, hours: int, minutes: int, seconds: int):
         self.hours = hours
@@ -29,9 +32,9 @@ class Time:
         # if self.hours > Time.max_hours:
         #     self.hours = 0
 
-        self.seconds = (self.seconds + 1) % 60
-        self.minutes = (self.minutes + (self.seconds == 0)) % 60
-        self.hours = (self.hours + (self.minutes == 0 and self.seconds == 0)) % 24
+        self.seconds = (self.seconds + 1) % (self.max_seconds + 1)
+        self.minutes = (self.minutes + (self.seconds == 0)) % (self.max_minutes + 1)
+        self.hours = (self.hours + (self.minutes == 0 and self.seconds == 0)) % (self.max_hours + 1)
 
         return self.get_time()
 

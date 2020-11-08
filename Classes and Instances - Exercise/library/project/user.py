@@ -6,6 +6,7 @@ class User:
 
     def get_book(self, author: str, book_name: str, days_to_return: int, library):
         book_is_found = any(True for u, books in library.books_available.items() if book_name in books)
+        # if author in library.books_available and book_name in library.books_available[author]:
         if book_is_found:
             self.books.append(book_name)
             library.books_available[author].remove(book_name)
@@ -13,6 +14,7 @@ class User:
                 library.rented_books[self.username] = {}
             library.rented_books[self.username][book_name] = days_to_return
             return f"{book_name} successfully rented for the next {days_to_return} days!"
+
         user_who_has_the_book = [user for user, books_in_user in library.rented_books.items() if book_name in books_in_user][0]
         return f'The book "{book_name}" is already rented and will be available in ' \
                f"{library.rented_books[user_who_has_the_book][book_name]} days!"

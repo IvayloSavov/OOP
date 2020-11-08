@@ -15,7 +15,7 @@ class Point:
     def set_y(self, new_y) -> None:
         self.y = new_y
 
-    def distance(self, x, y):
+    def distance(self, x, y) -> float:
         a = (self.x - x)**2
         b = (self.y - y)**2
         res = math.sqrt(a + b)

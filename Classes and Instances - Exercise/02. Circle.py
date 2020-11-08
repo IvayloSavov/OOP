@@ -1,20 +1,24 @@
+from typing import ClassVar
 import math
 
 
 class Circle:
-    pi = 3.14
+    # pi = math.pi
+    pi: ClassVar[int] = 3.14
 
     def __init__(self, radius: int):
-        self.radius = radius
+        self.radius: int = radius
 
-    def set_radius(self, new_radius):
+    def set_radius(self, new_radius) -> None:
         self.radius = new_radius
 
-    def get_area(self):
+    def get_area(self) -> float:
         return Circle.pi * (self.radius ** 2)
+        # return self.pi * (self.radius ** 2)
 
-    def get_circumference(self):
+    def get_circumference(self) -> float:
         return Circle.pi * (self.radius * 2)
+        # return self.pi * (self.radius * 2)
 
 
 circle = Circle(10)

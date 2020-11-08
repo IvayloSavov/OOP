@@ -17,17 +17,21 @@ class Time:
         return f"{self.hours:02d}:{self.minutes:02d}:{self.seconds:02d}"
 
     def next_second(self):
-        self.seconds += 1
-        if self.seconds > Time.max_seconds:
-            self.seconds = 0
-            self.minutes += 1
+        # self.seconds += 1
+        # if self.seconds > Time.max_seconds:
+        #     self.seconds = 0
+        #     self.minutes += 1
+        #
+        # if self.minutes > Time.max_minutes:
+        #     self.minutes = 0
+        #     self.hours += 1
+        #
+        # if self.hours > Time.max_hours:
+        #     self.hours = 0
 
-        if self.minutes > Time.max_minutes:
-            self.minutes = 0
-            self.hours += 1
-
-        if self.hours > Time.max_hours:
-            self.hours = 0
+        self.seconds = (self.seconds + 1) % 60
+        self.minutes = (self.minutes + (self.seconds == 0)) % 60
+        self.hours = (self.hours + (self.minutes == 0 and self.seconds == 0)) % 24
 
         return self.get_time()
 

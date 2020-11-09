@@ -15,11 +15,21 @@ class PhotoAlbum:
         return "No more free spots"
 
     def display(self) -> str:
-        res = f"{'-' * 11}\n"
-        for pages in self.photos:
-            res_2 = [f"[]" for _ in range(len(pages))]
-            res += f"{' '.join(res_2)}\n{'-' * 11}\n"
+        delitem = f"{'-' * 11}\n"
+        res = delitem
+        res += delitem.join([(f"[] " * len(pages)).rstrip() + "\n" for pages in self.photos]) + delitem
         return res
+
+        # res = f"{'-' * 11}\n"
+        # for pages in self.photos:
+        #     res_2 = [f"[]" for _ in range(len(pages))]
+        #     res += f"{' '.join(res_2)}\n{'-' * 11}\n"
+        # return res
+
+        # pages = [('[] ' * len(page)).rstrip(' ') + '\n' for page in self.photos]
+        # delim = '-' * 11 + '\n'
+        #
+        # return delim + (delim).join(pages) + delim
 
 
 album = PhotoAlbum(2)

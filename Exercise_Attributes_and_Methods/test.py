@@ -1,19 +1,12 @@
 class Customer:
-    customers_count = 0
+    @property
+    def a(self):
+        return 42
 
-    def __init__(self, name: str, address: str, email: str):
-        Customer.customers_count += 1
-        self.name = name
-        self.address = address
-        self.email = email
-        self.id = Customer.customers_count
+    @a.setter
+    def a(self, value):
+        a = value
 
-ashley = Customer("Ash", "hello", "hello")
-ivo = Customer("ivo", "hello", "hello")
-bogi = Customer("bogi", "hello", "hello")
-ivo = Customer("ivo", "hello", "hello")
-
-
-print(ashley.id)
-print(ivo.id)
-print(bogi.id)
+c = Customer()
+c.a = 50
+print(c.a)

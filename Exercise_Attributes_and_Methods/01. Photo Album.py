@@ -1,3 +1,5 @@
+from math import ceil
+
 class PhotoAlbum:
     def __init__(self, pages: int):
         self.pages = pages
@@ -5,7 +7,7 @@ class PhotoAlbum:
 
     @classmethod
     def from_photos_count(cls, photos_count: int):
-        return cls(photos_count // 4)
+        return cls(ceil(photos_count / 4))
 
     def add_photo(self, label: str) -> str:
         for index, page in enumerate(self.photos):

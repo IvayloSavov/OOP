@@ -1,0 +1,21 @@
+class ImageArea:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def get_area(self):
+        return self.width * self.height
+
+    def __repr__(self):
+        return self.get_area()
+
+    def __le__(self, other):
+        return self.get_area() <= other.get_area()
+
+# Може и без вторите методи, ge, le, тъй като другите ще поемат техните функции
+
+
+a1 = ImageArea(7, 10)
+a2 = ImageArea(35, 2)
+a3 = ImageArea(8, 9)
+print(a1 <= a2)

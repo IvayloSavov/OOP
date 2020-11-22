@@ -5,6 +5,7 @@ class take_skip:
         self.current_number = 0
 
     def __iter__(self):
+        self.current_number = 0
         return self
 
     def __next__(self):

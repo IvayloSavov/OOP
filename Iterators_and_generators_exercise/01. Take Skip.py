@@ -9,6 +9,9 @@ class take_skip:
         return self
 
     def __next__(self):
+        # generated_so_far = val / self.step
+        # if self.count == generated_so_far:
+        #     raise StopIteration
         if self.count > 0:
             number = self.current_number
             self.current_number += self.step

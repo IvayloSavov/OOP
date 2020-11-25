@@ -3,13 +3,16 @@ class sequence_repeat:
         self.sequence = sequence
         self.number = number
         self.current_char_index = -1
+        self.count = number
 
     def __iter__(self):
+        self.count = self.number
+        self.current_char_index = -1
         return self
 
     def __next__(self):
-        if self.number > 0:
-            self.number -= 1
+        if self.count > 0:
+            self.count -= 1
             self.current_char_index += 1
             self.current_char_index %= len(self.sequence)
             return self.sequence[self.current_char_index]

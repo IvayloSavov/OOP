@@ -1,9 +1,10 @@
 def read_next(*args):
-    for itr in args:
-        for ch in itr:
-            yield ch
+    # for itr in args:
+    #    for ch in itr:
+    #         yield ch
 
-#   return (str(ch) for itr in args for ch in itr)
+    return (str(ch) for itr in args for ch in itr)
+
 
 # read_next = lambda *args: (str(ch) for itr in args for ch in itr)
 

@@ -5,13 +5,13 @@ class Room:
     children: list
 
     def __init__(self, name: str, budget: float, members_count: int):
-        self._expenses = 0
         self.room_cost = 0
         self.family_name = name
         self.budget = budget
         self.members_count = members_count
         self.children = []
         self.appliances = []
+        self._expenses = 0
 
     @property
     def expenses(self):
@@ -31,7 +31,7 @@ class Room:
         self.expenses = total_costs
         return total_costs
 
-    def __str__(self):
+    def __repr__(self):
         if self.budget >= self.expenses + self.room_cost:
             self.budget -= self.expenses + self.room_cost
             return f"{self.family_name} paid {self.expenses + self.room_cost:.2f}$ and have {self.budget:.2f}$ left.\n"
